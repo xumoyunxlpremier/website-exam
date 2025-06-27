@@ -66,4 +66,21 @@
     height: 100%;
 }
 
-/* Image border design styles */
+.first-border {
+    width: 600px;
+    border: 5px solid #800080;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+ 
+}
+
+
+.first-border img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
