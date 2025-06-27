@@ -1,0 +1,69 @@
+/* Home Content */
+.home {
+    width: 100%;
+}
+
+.home__container {
+    /* background: orange; */
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.home-content {
+    /* background: red; */
+    width: 500px;
+    min-width: 320px;
+}
+
+.home-content h1 {
+    font-size: 40px;
+    line-height: 1.2;
+}
+
+.home-content h3 {
+    font-size: 40px;
+    color: purple;
+}
+
+.home-content p {
+    font-size: 16px;
+    margin: 15px 0 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 28px;
+    background: purple;
+    border: 2px solid purple;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 16px;
+    color: #eaeaea;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: purple;
+}
+
+/* Img  */
+.home-img {
+    min-width: 320px;
+    position: relative;
+    /* background-color: green; */
+}
+
+.home-img img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Image border design styles */
