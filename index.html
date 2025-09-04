@@ -1,206 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cars</title>
-
-    <!-- Css imports -->
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/about.css">
-    <link rel="stylesheet" href="./css/cars.css">
-    <link rel="stylesheet" href="./css/contact.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container header__container">
-            <a href="#" class="logo" data-aos="fade-right" data-aos-duration="1500">Speed</a>
-            <nav class="navbar" data-aos="flip-left" data-aos-duration="1500">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#cars-section">Cars</a>
-                <a href="#contact-section">Contact</a>
-            </nav>
-            <div class="social-media" data-aos="fade-left" data-aos-duration="1500">
-                <a href="https://t.me/foz1ljonov_x"><i class='bx bxl-telegram'></i></a>
-                <a href="https://ilhomlandim.uz/"><i class='bx bxl-twitter'></i></a>
-                <a href="https://www.instagram.com/foz1ljonov_x?igsh=ZzljYzB3bmczOXds"><i
-                        class='bx bxl-instagram'></i></a>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">Xumoyun Foziljonov</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition duration-300">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600 hover:text-blue-600">About</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-blue-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-blue-600">Contact</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Main container -->
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="mb-8">
+                <img src="images/mainphoto.jpg" alt="me" class="w-48 h-48 rounded-full mx-auto mb-8 shadow-lg object-cover">
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
+               <span class="text-blue-600">Xumoyun Foziljonov</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Frontend Developer passionate about creating innovative web solutions and bringing ideas to life through code.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300 font-semibold">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Home section -->
-    <main>
-        <section class="home" id="home">
-            <div class="container home__container">
-                <div class="home-content" data-aos="fade-right" data-aos-duration="1500">
-                    <h1>Car enthusiast </h1>
-                    <h3>Remodel</h3>
-
-                    <p data-aos="fade-right" data-aos-duration="1500">I'm passionate about cars and love giving them a
-                        new
-                        life
-                        through remodeling and accelerating. Whether it's restoring a vintage vehicle
-                        or upgrading a modern one, I enjoy working on every detail — from the engine to the design. For
-                        me,
-                        every car is a
-                        unique project and a form of art.</p>
-                    <a href="#cars-section" class="btn" data-aos="fade-right" data-aos-duration="1500">Explore Cars</a>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Passionate Developer & Problem Solver</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                     Frontend Developer — Soddalik, samaradorlik va innovatsiyani qadrlovchi dasturchi.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                   Others will be available soon.
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">CSS</span>
+                        
+                    </div>
                 </div>
-                <div class="home-img" data-aos="fade-left" data-aos-duration="1500">
-                    <div class="first-border">
-                        <div class="second-border">
-                            <img src="https://thehamiltoncollection.com/cdn/shop/articles/ev-22_1.jpg?v=1738216710&width=1100"
-                                alt="">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">10+</div>
+                        <div class="text-gray-600">Projects Completed</div>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">4 months</div>
+                        <div class="text-gray-600"> Experience</div>
+                    </div>
+                  
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                        <div class="text-gray-600">Satisfaction Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">My Projects</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Here are some of my recent projects that showcase my skills and passion for development.
+                </p>
+            </div>
+            
+            <!-- Project Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!--1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 project-card">
+                    <div class="relative overflow-hidden">
+                        <img src="images/doondonziki.jpg" alt="popular game" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                       
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Rock-paper-scissors</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                           Oddiy va interaktiv o‘yin, foydalanuvchi kompyuter bilan raqobatlashadi. Hard mode’da qo‘shimcha qoidalar bilan yanada qiziqarli bo‘ladi.
+                       Klassik “Rock-Paper-Scissors” o‘yini zamonaviy dizayn va qo‘shimcha rejimlar bilan yangicha talqinda.
+                     Qiziqarli mini-o‘yin: oddiy rejimda 3 ta, hard rejimda esa 5 ta variant bilan o‘ynash imkoniyati.
+                        </p>
+                          <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">TAILWIND CSS</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a target="_blank" href="https://github.com/xumoyunxlpremier/rock-paper-scissorsfull" class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a target="_blank" href="https://rock-paper-scissors-selfx.netlify.app" class="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- About -->
-        <section class="about" id="about">
-            <div class="container about__container">
-                <div class="about-image">
-                    <img src="photo_2025-06-26_02-56-13.jpg" alt="About Cars">
-                </div>
-                <div class="about-text">
-                    <h2>About Us</h2>
-                    <p>Welcome to <strong>CarWorld</strong> – a website built for car lovers by car lovers. We share
-                        information
-                        about classic, modern, electric and luxury cars to help you discover the perfect ride.</p>
-                    <p>From reviews to latest car news, our mission is to deliver reliable and exciting content that
-                        fuels
-                        your
-                        passion with automobiles
-                        .</p>
-                </div>
-            </div>
-        </section>
-        <!-- Cars -->
-        <section class="cars-section" id="cars-section">
-            <div class="container cars__container">
-                <h2>Our Cars</h2>
-                <div class="car-list">
-                    <div class="car-card">
-                        <img src="https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/news/2021/06_30_teasing/teasing_cover_m.jpg"
-                            alt="Lamborghini Aventador">
-                        <h3>Lamborghini Aventador</h3>
-                        <p>A high-performance supercar with a V12 engine and aggressive design.</p>
-                    </div>
 
-                    <div class="car-card">
-                        <img src="https://cdn.motor1.com/images/mgl/bgE3Gk/s1/tesla-model-s.jpg" alt="Tesla Model S">
-                        <h3>Tesla Model S</h3>
-                        <p>An electric sedan with autopilot and a futuristic interior.</p>
+                     <!--2-->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300 project-card">
+                    <div class="relative overflow-hidden">
+                        <img src="images/todolist.jpg" alt="todoliost" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+                       
                     </div>
-
-                    <div class="car-card">
-                        <img src="https://hips.hearstapps.com/hmg-prod/images/2025-bmw-m4-coupe-rear-three-quarters-motion-3-65b935e81e852.jpg?crop=0.769xw:0.648xh;0.213xw,0.148xh&resize=1200:*"
-                            alt="BMW M4">
-                        <h3>BMW M4</h3>
-                        <p>A sporty coupe with German engineering and luxury feel.</p>
-                    </div>
-                    <div class="car-card">
-                        <img src="xl2.jpg" alt="XL">
-                        <h3>Malibu XL</h3>
-                        <p>A stylish and spacious mid-size sedan, known for comfort, smooth drive, and advanced features
-                        </p>
-                    </div>
-                    <div class="car-card">
-                        <img src="https://avadge.com/media/catalog/car_photos/mercedes/g800-brabus/2025-4.0-petrol/2_Kg9OtXy.webp"
-                            alt="Gelik">
-                        <h3>Gelik</h3>
-                        <p>The Mercedes-Benz G-Class, also known as the Gelik, is a high-end SUV with exceptional
-                            off-road
-                            performance, a powerful
-                            V8 engine, and iconic boxy styling.</p>
-                    </div>
-                    <div class="car-card">
-                        <img src="ferrari-edit-v0-1fdj8cw3ioza1.jpg" alt="Ferrari">
-                        <h3>Ferrari</h3>
-                        <p>Ferrari is a world-renowned Italian luxury sports car manufacturer, famous for its blend of
-                            performance,
-                            design, and
-                            exclusivity. Each Ferrari embodies cutting-edge engineering, powerful engines, and sleek,
-                            aerodynamic
-                            styling. With a
-                            deep motorsport heritage rooted in Formula 1, Ferraris are not only high-performance
-                            vehicles
-                            but
-                            also
-                            cultural icons
-                            that symbolize speed, prestige, and craftsmanship.</p>
-                    </div>
-                    <div class="car-card">
-                        <img src="https://avatars.mds.yandex.net/get-verba/1535139/2a000001906d9e528a6800ca6a3493ce0b91/456x342"
-                            alt="Porsche 911">
-                        <h3>Porsche 911</h3>
-                        <p>The Porsche 911 is a legendary sports car produced by the German automaker Porsche since
-                            1964. Known for its distinctive
-                            design, rear-engine layout, and exceptional performance, the 911 has become one of the most
-                            iconic vehicles in
-                            automotive history</p>
-                    </div>
-                    <div class="car-card">
-                        <img src="https://cdn.motor1.com/images/mgl/VzMq0z/s3/bugatti-chiron-1500.jpg"
-                            alt="Bugatti Chiron">
-                        <h3>Bugatti Chiron</h3>
-                        <p>At the heart of the Chiron is an 8.0-liter quad-turbocharged W16 engine that produces 1,479
-                            horsepower (1,103 kW) and
-                            1,600 Nm of torque. This immense power allows the car to accelerate from 0 to 100 km/h in
-                            under 2.5 seconds, with a top
-                            speed electronically limited to 420 km/h (261 mph) for safety, though it's capable of even
-                            more in specialized versions.</p>
-                    </div>
-                    <div class="car-card">
-                        <img src="https://repost.uz/storage/uploads/0-1732502973-avto11-post-material.jpeg"
-                            alt="Rolls Royce">
-                        <h3>Rolls-Royce Phantom</h3>
-                        <p>The Rolls-Royce Phantom is the flagship luxury sedan of Rolls-Royce Motor Cars, known
-                            globally as the ultimate symbol of
-                            prestige, craftsmanship, and opulence. First introduced in 1925, the Phantom has evolved
-                            over generations to become the
-                            benchmark for high-end automotive luxury.</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">CRUD To-do-list</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">
+                             To-Do List ilovasi: foydalanuvchi vazifalarni qo‘shishi, o‘chirish, tahrirlash va belgilash imkoniyatiga ega. Minimal dizayn va qulay CRUD funksionalligi bilan yaratilgan.
+                             Oddiy, lekin samarali CRUD asosidagi vazifa boshqaruv ilovasi. Har bir task ustida to‘liq nazorat: qo‘shish, o‘chirish, yangilash va bajarilganini belgilash.
+                       </p>
+                         <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">HTML</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">TAILWIND CSS</span>
+                            <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex gap-3">
+                            <a target="_blank" href=" https://github.com/xumoyunxlpremier/to-do-listx" class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                            <a target="_blank" href="to-do-list-selfx.netlify.app" class="flex-1 bg-blue-600 text-white text-center py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                        </div>
                     </div>
                 </div>
+               
             </div>
-        </section>
-        <!-- Contact -->
-        <section class="contact-section" id="contact-section">
-            <div class="container contact__container">
-                <h2>Contact Me</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <h3>📞 Phone</h3>
-                        <p>+998 91 325 4700</p>
-                    </div>
-                    <div class="contact-item">
-                        <h3>📧 Email</h3>
-                        <p>hfoziljonov1806@gmail.com</p>
-                    </div>
+        </div>
+    </section>
 
-                    <div class="contact-item">
-                        <h3>📍 Location</h3>
-                        <p> Fergana, Uzbekistan</p>
-                       </div>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    I'm always open to discussing new opportunities and interesting projects. Let's connect!
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Let's Work Together</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Whether you have a project in mind or just want to chat about technology, I'd love to hear from you. Feel free to reach out through any of the channels below.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">hfoziljonov1806@example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">-</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Location</h4>
+                                <p class="text-gray-600">Ferghana, Uzbekistan</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-800 mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/xumoyunxlpremier" class="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-700 transition duration-300">
+                                <i class="fab fa-github"></i>
+                            </a>
+                         </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300" placeholder="Your Name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300" placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" id="subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300" placeholder="Project Inquiry">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300 resize-none" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 font-semibold">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-400">
+                © 2025 Xumoyun Foziljonov. All rights reserved. 
+            </p>
+        </div>
+    </footer>
+
+    
 </body>
-
 </html>
