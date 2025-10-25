@@ -1,106 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Xumoyun Foziljonov - Frontend Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0a;
+            color: #e5e5e5;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        /* Navbar Animation */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+            opacity: 0;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+            opacity: 0;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Project Cards - Full Width Design */
+        .project-item {
+            background: #111111;
+            border: 1px solid #222;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-item:hover::before {
+            left: 100%;
+        }
+
+        .project-item:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-item:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        /* Tech Stack Tags */
+        .tech-tag {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid #3b82f6;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Stats Cards */
+        .stat-card {
+            background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Contact Icons */
+        .contact-icon {
+            background: rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            background: #3b82f6;
+            transform: scale(1.1);
+        }
+
+        /* Form Elements */
+        input,
+        textarea {
+            background: #111111;
+            border: 1px solid #222;
+            color: #e5e5e5;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-image {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 320px) and (max-width: 374px) {
+            body {
+                font-size: 14px;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4">
+    <nav class="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="text-xl font-bold text-[#10164D]">Xumoyun Foziljonov</div>
+                <div class="text-xl sm:text-2xl font-bold gradient-text">XF</div>
+
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="navbar text-[#10164D] hover:text-[#10164D] transition duration-300">Home</a>
-                    <a href="#about" class="text-[#10164D] hover:text-[#10164D] transition duration-300">About</a>
-                    <a href="#projects" class="text-[#10164D] hover:text-[#10164D] transition duration-300">Projects</a>
-                    <a href="#contact" class="text-[#10164D] hover:text-[#10164D] transition duration-300">Contact</a>
+                    <a href="#home" class="nav-link text-gray-300 hover:text-white">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white">About</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-white">Contact</a>
                 </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-[#10164D] hover:text-[#10164D]">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
+
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <a href="#home" class="block py-2 text-[#10164D] hover:text-[#10164D]">Home</a>
-                <a href="#about" class="block py-2 text-[#10164D] hover:text-[#10164D]">About</a>
-                <a href="#projects" class="block py-2 text-[#10164D] hover:text-[#10164D]">Projects</a>
-                <a href="#contact" class="block py-2 text-[#10164D] hover:text-[#10164D]">Contact</a>
+            <div id="mobile-menu" class="hidden md:hidden pb-4 mobile-menu">
+                <a href="#home" class="block py-2 text-gray-300 hover:text-white">Home</a>
+                <a href="#about" class="block py-2 text-gray-300 hover:text-white">About</a>
+                <a href="#projects" class="block py-2 text-gray-300 hover:text-white">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:text-white">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home"
-        class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 pt-16">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <div class="mb-8">
-                <img src="images/mainphoto.jpg" alt="me"
-                    class="w-48 h-48 rounded-full mx-auto mb-8 shadow-lg object-cover">
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="mb-8 fade-in-up">
+                <img src="https://wallpapercave.com/wp/wp10965747.png" alt="Xumoyun Foziljonov"
+                    class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full mx-auto shadow-2xl object-cover border-4 border-blue-500/30">
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-[#10164D] mb-6">
-                <span class="text-[#10164D]">Xumoyun Foziljonov</span>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 fade-in-up delay-1">
+                Hi, I'm <span class="gradient-text">Xumoyun Foziljonov</span>
             </h1>
-            <p class="text-xl md:text-2xl text-[#10164D] mb-8 max-w-3xl mx-auto">
+
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl mx-auto fade-in-up delay-2">
                 Frontend Developer passionate about creating innovative web solutions and bringing ideas to life through
                 code.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-3">
                 <a href="#projects"
-                    class="bg-[#10164D] text-white px-8 py-3 rounded-lg hover:bg-[#10144D] transition duration-300 font-semibold">
-                    View My Work
+                    class="btn-primary text-white px-6 sm:px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center">
+                    <i class="fas fa-code mr-2"></i> View My Work
                 </a>
                 <a href="#contact"
-                    class="border-2 border-blue-600 text-[#10164D] px-8 py-3 rounded-lg hover:bg-[#10164D] hover:text-white transition duration-300 font-semibold">
-                    Get In Touch
+                    class="btn-secondary text-white px-6 sm:px-8 py-3 rounded-lg font-semibold inline-flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Get In Touch
                 </a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-[#10164D] mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-[#10164D] mx-auto"></div>
+    <section id="about" class="py-16 sm:py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 section-heading">About Me</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div>
-                    <h3 class="text-2xl font-semibold text-#10164D mb-6">Passionate Developer & Problem Solver</h3>
-                    <p class="text-[#10164D] mb-6 ">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 gradient-text">Passionate Developer & Problem
+                        Solver</h3>
+                    <p class="text-gray-400 mb-6 text-base sm:text-lg leading-relaxed">
                         Frontend Developer — Soddalik, samaradorlik va innovatsiyani qadrlovchi dasturchi.
                     </p>
-                    <p class="text-[#10164D] mb-6 ">
+                    <p class="text-gray-400 mb-6 text-base sm:text-lg">
                         Others will be available soon.
-                    <div class="flex flex-wrap gap-3">
-                        <span class="bg-[#10164D] text-white px-3 py-1 rounded-full text-sm font-medium">HTML</span>
-                        <span
-                            class="bg-[#10164D] text-white px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
-                        <span class="bg-[#10164D] text-white px-3 py-1 rounded-full text-sm font-medium">CSS</span>
+                    </p>
 
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tech-tag px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fab fa-html5 mr-2"></i>HTML
+                        </span>
+                        <span class="tech-tag px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fab fa-js mr-2"></i>JavaScript
+                        </span>
+                        <span class="tech-tag px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fab fa-js mr-2"></i>Tailwind CSS
+                        </span>
+                        <span class="tech-tag px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fab fa-css3-alt mr-2"></i>CSS
+                        </span>
+                        <span class="tech-tag px-4 py-2 rounded-full text-sm font-medium">
+                            <i class="fab fa-js mr-2"></i>React
+                        </span>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="text-center p-6 bg-gray-50 rounded-lg">
-                        <div class="text-3xl font-bold text-[#10164D] mb-2">10+</div>
-                        <div class="text-[#10164D]">Projects Completed</div>
-                    </div>
-                    <div class="text-center p-6 bg-gray-50 rounded-lg">
-                        <div class="text-3xl font-bold text-[#10164D] mb-2">4 months</div>
-                        <div class="text-[#10164D]"> Experience</div>
-                    </div>
 
-                    <div class="text-center p-6 bg-gray-50 rounded-lg">
-                        <div class="text-3xl font-bold text-[#10164D] mb-2">100%</div>
-                        <div class="text-[#10164D]">Satisfaction Rate</div>
+                <div class="grid grid-cols-2 gap-4 sm:gap-6">
+                    <div class="stat-card text-center p-4 sm:p-6 rounded-xl">
+                        <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">20+</div>
+                        <div class="text-gray-400 text-sm sm:text-base">Projects Completed</div>
+                    </div>
+                    <div class="stat-card text-center p-4 sm:p-6 rounded-xl">
+                        <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">6</div>
+                        <div class="text-gray-400 text-sm sm:text-base">Months Experience</div>
+                    </div>
+                    <div class="stat-card text-center p-4 sm:p-6 rounded-xl col-span-2">
+                        <div class="text-3xl sm:text-4xl font-bold gradient-text mb-2">100%</div>
+                        <div class="text-gray-400 text-sm sm:text-base">Satisfaction Rate</div>
                     </div>
                 </div>
             </div>
@@ -108,219 +401,233 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-[#10164D] mb-4">My Projects</h2>
-                <div class="w-24 h-1 bg-[#10164D] mx-auto mb-6"></div>
-                <p class="text-[#10164D] max-w-2xl mx-auto">
+    <section id="projects" class="py-16 sm:py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 section-heading">My Projects</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-8 text-base sm:text-lg">
                     Here are some of my recent projects that showcase my skills and passion for development.
                 </p>
             </div>
 
-            <!-- Project Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!--1-->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/doondonziki.jpg" alt="popular game" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">Rock-paper-scissors</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                            Oddiy va interaktiv o‘yin, foydalanuvchi kompyuter bilan raqobatlashadi. Hard mode’da
-                            qo‘shimcha
-                            qoidalar bilan yanada qiziqarli bo‘ladi.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">TAILWIND CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
+            <!-- Projects Grid - Full Width Cards -->
+            <div class="space-y-8">
+                <!-- Project 1 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden">
+                            <img src="images/doondonziki.jpg" alt="Rock-paper-scissors" class="project-image">
                         </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/rock-paper-scissorsfull"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://rock-paper-scissors-selfx.netlify.app"
-                                class="flex-1 bg-[#10164D]  text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt text-white mr-2"></i>Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!--2-->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/todolist.jpg" alt="todolist" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">CRUD To-do-list</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                            To-Do List ilovasi: foydalanuvchi vazifalarni qo‘shishi, o‘chirish, tahrirlash va belgilash
-                            imkoniyatiga ega.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class=" bg-[#10164D] text-white px-2 py-1 rounded text-sm">TAILWIND CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
-                        </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/to-do-listx"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://to-do-list-selfx.netlify.app"
-                                class="flex-1 bg-[#10164D]  text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">Rock-Paper-Scissors</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                Oddiy va interaktiv o'yin, foydalanuvchi kompyuter bilan raqobatlashadi. Hard mode'da
+                                qo'shimcha qoidalar bilan yanada qiziqarli bo'ladi.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">Tailwind CSS</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/rock-paper-scissorsfull" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://rock-paper-scissors-selfx.netlify.app" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!--3-->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/appt.jpg" alt="try it" class="w-full h-48 object-cover ">
+                <!-- Project 2 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden md:order-2">
+                            <img src="images/reacttodo.jpg" alt="CRUD To-do-list" class="project-image">
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center md:order-1">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">CRUD To-do-list made in React
+                            </h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                To-Do List ilovasi: foydalanuvchi vazifalarni qo'shishi, o'chirish, tahrirlash va
+                                belgilash imkoniyatiga ega.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">Tailwind CSS</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">JavaScript</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">React</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/react-to-do-list" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://react-to-do-list-coral-two.vercel.app/" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">CRUD List using Template</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                            C (Create) — yangi vazifa qo‘shganda, foydalanuvchi title (nomi) va description (qisqa
-                            tarif)
-                            kiritadi.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">TAILWIND CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
+                </div>
 
+                <!-- Project 3 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden">
+                            <img src="images/uzummarke.jpg" alt="" aria-hidden="true" class="project-image">
                         </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/orgtodo"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://todolistorginal.netlify.app"
-                                class="flex-1 bg-[#10164D] text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 4 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/math.game.jpg" alt="try it" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">An interactive Math game for children adeg
-                            3 to 10</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                            Amazing opportunity to imrove childrens mathematical skills. Try it!
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">TAILWIND CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">Uzum Market</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                Uzum Market — O‘zbekistondagi eng yirik onlayn marketpleyslardan biri bo‘lib,
+                                e-commerce, fintech va bank xizmatlari
+                                ekotizimining bir qismi hisoblanadi.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">CSS</span>
 
-                        </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/mathgame"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://mathinteractive.netlify.app"
-                                class="flex-1 bg-[#10164D] text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 5 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/api.jpg" alt="try it" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">API (Application Programming Interface) — bu turli dasturlar yoki tizimlar o‘zaro muloqot qilishi uchun yaratilgan
-                        interfeys. Oddiy qilib aytganda, API — bu “oraliq darvozasi” bo‘lib, sizning dasturingiz server yoki boshqa xizmat bilan
-                        ma’lumot almashadi.</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">TAILWIND CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
-                
-                        </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/webapi"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://apiwebpro.netlify.app"
-                                class="flex-1 bg-[#10164D] text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/examuzummarket" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://xumoyunuzummarketexam.netlify.app" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- 6 -->
-                
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/2.0.jpg" alt="try it" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">5-oy 3-dars</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">CSS</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
-                
+
+                <!-- Project 4 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden md:order-2">
+                            <img src="images/math.game.jpg" alt="Math Game" class="project-image">
                         </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/APi2.0"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://webapixumoyun.netlify.app/"
-                                class="flex-1 bg-[#10164D] text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center md:order-1">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">Interactive Math Game</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                An interactive Math game for children aged 3 to 10. Amazing opportunity to improve
+                                children's mathematical skills. Try it!
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">Tailwind CSS</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/mathgame" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://mathinteractive.netlify.app" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- 7 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden  project-card">
-                    <div class="relative overflow-hidden">
-                        <img src="images/ui.jpg" alt="try it" class="w-full h-48 object-cover ">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-[#10164D] mb-3">Api>CRUD</h3>
-                        <p class="text-[#10164D] mb-4 ">
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">HTML</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">Tailwind</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">DAisy ui</span>
-                            <span class="bg-[#10164D] text-white px-2 py-1 rounded text-sm">JavaScript</span>
-                
+
+                <!-- Project 5 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden md:order-2">
+                            <img src="images/2.0.jpg" alt="API 2.0" class="project-image">
                         </div>
-                        <div class="flex gap-3">
-                            <a target="_blank" href="https://github.com/xumoyunxlpremier/backendcars"
-                                class="flex-1 bg-gray-800 text-white text-center py-2 px-4 rounded hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github mr-2"></i>GitHub
-                            </a>
-                            <a target="_blank" href="https://https://backendcars.netlify.app/"
-                                class="flex-1 bg-[#10164D] text-white text-center py-2 px-4 rounded hover:bg-[#10164D] transition duration-300">
-                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
-                            </a>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center md:order-1">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">API</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                Advanced API integration project with enhanced features and improved functionality.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">CSS</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/APi2.0" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://webapixumoyun.netlify.app/" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 6-->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden md:order-2">
+                            <img src="images/countryes.jpg" alt="countryes" class="project-image">
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center md:order-1">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">Country - Dark mode integration(One of my first projects)</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                Ui is integrated with Dark mode
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">CSS</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">JavaScript</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/cntrfull" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://cntrfull.vercel.app" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 7 -->
+                <div class="project-item rounded-xl overflow-hidden">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="overflow-hidden">
+                            <img src="images/shortly.jpg" alt="shortly" class="project-image">
+                        </div>
+                        <div class="p-6 sm:p-8 flex flex-col justify-center">
+                            <h3 class="text-xl sm:text-2xl font-bold mb-4 gradient-text">Shortly Landing page</h3>
+                            <p class="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+                                Shortly Landing Page - easy to shorten your links
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">React</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">HTML</span>
+                                <span class="tech-tag px-3 py-1 rounded text-xs sm:text-sm">CSS</span>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="https://github.com/xumoyunxlpremier/react_shortly" target="_blank"
+                                    class="flex-1 bg-gray-800 text-white text-center py-3 px-4 rounded-lg hover:bg-gray-700 transition text-sm sm:text-base">
+                                    <i class="fab fa-github mr-2"></i>GitHub
+                                </a>
+                                <a href="https://react-shortly-chi.vercel.app" target="_blank"
+                                    class="flex-1 btn-primary text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                </a>
+                                <a href="https://www.figma.com/design/lSpyM56pXVRqVVqCSkPi3I/url-shortening-api-landing-page--Copy-?node-id=0-1&p=f&t=8lbW9awKcUl8DsOz-0"
+                                    target="_blank"
+                                    class="flex-1 bg-[#F24E1E] text-white text-center py-3 px-4 rounded-lg text-sm sm:text-base">
+                                    <i class="fas fa-external-link-alt mr-2"></i>Figma
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -328,102 +635,106 @@
         </div>
     </section>
 
-
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-[#10164D] mb-4">Get In Touch</h2>
-                <div class="w-24 h-1 bg-[#10164D]mx-auto mb-6"></div>
-                <p class="text-[#10164D] max-w-2xl mx-auto">
+    <section id="contact" class="py-16 sm:py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 section-heading">Get In Touch</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-8 text-base sm:text-lg">
                     I'm always open to discussing new opportunities and interesting projects. Let's connect!
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12">
+            <div class="grid md:grid-cols-2 gap-8 sm:gap-12">
                 <div>
-                    <h3 class="text-2xl font-semibold text-[#10164D] mb-6">Let's Work Together</h3>
-                    <p class="text-[#10164D] mb-8 leading-relaxed">
+                    <h3 class="text-2xl sm:text-3xl font-semibold mb-6 gradient-text">Let's Work Together</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed text-sm sm:text-base">
                         Whether you have a project in mind or just want to chat about technology, I'd love to hear from
                         you. Feel free to reach out through any of the channels below.
                     </p>
 
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <div class="flex items-center">
-                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-envelope text-blue-600"></i>
+                            <div class="contact-icon p-4 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-white-500 text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-800">Email</h4>
-                                <p class="text-gray-600">hfoziljonov1806@example.com</p>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Email</h4>
+                                <p class="text-gray-400 text-sm sm:text-base">hfoziljonov1806@example.com</p>
                             </div>
                         </div>
 
                         <div class="flex items-center">
-                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-phone text-blue-600"></i>
+                            <div class="contact-icon p-4 rounded-lg mr-4">
+                                <i class="fas fa-phone text-white-500 text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-800">Phone</h4>
-                                <p class="text-gray-600">-</p>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Phone</h4>
+                                <p class="text-gray-400 text-sm sm:text-base">Available upon request</p>
                             </div>
                         </div>
 
                         <div class="flex items-center">
-                            <div class="bg-blue-100 p-3 rounded-lg mr-4">
-                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <div class="contact-icon p-4 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt text-white-500 text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-800">Location</h4>
-                                <p class="text-gray-600">Ferghana, Uzbekistan</p>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Location</h4>
+                                <p class="text-gray-400 text-sm sm:text-base">Ferghana, Uzbekistan</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-8">
-                        <h4 class="font-semibold text-gray-800 mb-4">Follow Me</h4>
+                        <h4 class="font-semibold text-white mb-4 text-sm sm:text-base">Follow Me</h4>
                         <div class="flex space-x-4">
-                            <a href="https://github.com/xumoyunxlpremier"
-                                class="bg-gray-800 text-white p-3 rounded-lg hover:bg-gray-700 transition duration-300">
-                                <i class="fab fa-github"></i>
+                            <a href="https://github.com/xumoyunxlpremier" target="_blank"
+                                class="contact-icon text-wh p-4 rounded-lg hover:text-white-500 transition">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="contact-icon text-white p-4 rounded-lg hover:text-white-500 transition">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://t.me/foz1ljonov_x" class="contact-icon text-white p-4 rounded-lg hover:text-white-300 transition">
+                                <i class="fab fa-telegram text-xl"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 p-8 rounded-lg">
+                <div class="stat-card p-6 sm:p-8 rounded-xl">
                     <form class="space-y-6">
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
                             <input type="text" id="name" name="name"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300"
+                                class="w-full px-4 py-3 rounded-lg transition text-sm sm:text-base"
                                 placeholder="Your Name">
                         </div>
 
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
                             <input type="email" id="email" name="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300"
+                                class="w-full px-4 py-3 rounded-lg transition text-sm sm:text-base"
                                 placeholder="your.email@example.com">
                         </div>
 
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <label for="subject" class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
                             <input type="text" id="subject" name="subject"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300"
+                                class="w-full px-4 py-3 rounded-lg transition text-sm sm:text-base"
                                 placeholder="Project Inquiry">
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
                             <textarea id="message" name="message" rows="5"
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition duration-300 resize-none"
+                                class="w-full px-4 py-3 rounded-lg transition resize-none text-sm sm:text-base"
                                 placeholder="Tell me about your project..."></textarea>
                         </div>
 
                         <button type="submit"
-                            class="w-full bg-[#10164D] text-white py-3 px-6 rounded-lg hover:bg-[#10164D] transition duration-300 font-semibold">
-                            Send Message
+                            class="w-full btn-primary text-white py-3 px-6 rounded-lg font-semibold text-sm sm:text-base">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
                         </button>
                     </form>
                 </div>
@@ -432,15 +743,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <p class="text-gray-400">
+    <footer class="bg-black border-t border-gray-800 py-8 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400 text-sm sm:text-base">
                 © 2025 Xumoyun Foziljonov. All rights reserved.
             </p>
         </div>
     </footer>
 
-
+<script src="js/app.js"></script>
 </body>
 
 </html>
